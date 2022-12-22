@@ -18,11 +18,11 @@ const Leaderboard = () => {
             <div className={cx(styles.container, { [styles.collapsed]: !isExpanded })}>
                 <div className={styles.section}>
                     <div className={styles.title}>Top Voted:</div>
-                    <div className={styles.list}>{topVoted.map((item, idx) => <div className={styles.listItem}>{idx + 1}. {item.quote}</div>)}</div>
+                    <div className={styles.list}>{topVoted.map((item, idx) => <div key={`top-${item.id}`} className={styles.listItem}>{idx + 1}. {item.quote}</div>)}</div>
                 </div>
                 <div className={styles.section}>
                     <div className={styles.title}>Low Voted:</div>
-                    <div className={styles.list}>{lowVoted.map((item, idx) => <div className={styles.listItem}>{idx + 1}. {item.quote}</div>)}</div>
+                    <div className={styles.list}>{lowVoted.map((item, idx) => <div key={`bottom-${item.id}`} className={styles.listItem}>{idx + 1}. {item.quote}</div>)}</div>
                 </div>
             </div>
             <button

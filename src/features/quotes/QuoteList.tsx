@@ -28,7 +28,7 @@ const QuoteList = () => {
     
     return (
         <div className={styles.list}>
-            {quotes.map(q => <Quote item={q} />)}
+            {quotes.map(q => <Quote key={`quote-${q.id}`} item={q} />)}
         </div>
     )
 }
