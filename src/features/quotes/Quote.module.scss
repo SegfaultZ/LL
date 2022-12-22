@@ -4,10 +4,29 @@
     height: 60px;
     align-items: center;
     gap: 8px;
-    padding: 10px 50px;
+    padding: 10px 20px 10px 20px;
+    margin: 10px 30px;
+    background-color: rgb(46, 46, 46);
+    justify-content: flex-start;
+
+    .count {
+        height: 50px;
+        width: 50px;
+        background-color: rgb(27, 27, 27);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    .quote {
+        flex: 1;
+        overflow-y: auto;
+    }
 
     .voteButtons {
         display: flex;
         flex-direction: column;
+        gap: 4px;
     }
 }

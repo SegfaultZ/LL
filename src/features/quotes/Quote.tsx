@@ -20,13 +20,23 @@ const Quote: FC<Props> = ({ item }) => {
         dispatch(downvote(item))
     }
 
+    const renderVoteCount = (count: number) => {
+        if (Math.abs(count) > 999) {
+            const asDecimal = Math.abs(count)/1000
+            return `${Math.sign(count)*(asDecimal.toFixed(1) as any)}k`
+        } 
+        
+        return Math.sign(count) * Math.abs(count)
+    }
+
     return (
         <div className={styles.quote}>
             <div className={styles.voteButtons}>
                 <Button label={'arrow_drop_up'}  onClick={() => voteUp(item)} showIcon />
-                <Button label={'arrow_drop_down'}  onClick={() => voteDown(item)} showIcon />
+                <Button label={'arrow_drop_down'}  onClick={() => voteDown(item)} variant='danger' showIcon />
             </div>
-            <div>{item.votes} - {item.quote}</div>
+            <div className={styles.count}>{renderVoteCount(item.votes)}</div>
+            <div className={styles.quote}>{item.quote}</div>
         </div>
     )
 }
