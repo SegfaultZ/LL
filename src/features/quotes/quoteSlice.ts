@@ -1,7 +1,8 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AppThunk, RootState } from '../../app/store';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../../app/store';
 
 type Quote = {
+  id: string
   quote: string
   votes: number
 }
@@ -12,27 +13,39 @@ export interface QuoteState {
 
 const initialState: QuoteState = {
   list: []
-};
+}
 
 export const quotesSlice = createSlice({
   name: 'quotes',
   initialState,
   reducers: {
-    upvote: (state) => {
-      state.list = [];
+    upvote: (state, action: PayloadAction<Quote>) => {
+      state.list = [...state.list].map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, votes: item.votes + 1 }
+        }
+
+        return item
+      })
     },
-    downvote: (state) => {
-      state.list = [];
+    downvote: (state, action: PayloadAction<Quote>) => {
+      state.list = [...state.list].map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, votes: item.votes - 1 }
+        }
+
+        return item
+      })
     },
     setQuotes: (state, action: PayloadAction<Quote[]>) => {
-      state.list = action.payload;
+      state.list = action.payload
     },
   },
-});
+})
 
-export const { upvote, downvote, setQuotes } = quotesSlice.actions;
+export const { upvote, downvote, setQuotes } = quotesSlice.actions
 
-export const selectQuotes = (state: RootState) => state.quotes.list;
+export const selectQuotes = (state: RootState) => state.quotes.list
 export const selectTopVoted = (state: RootState) => [...state.quotes.list].sort((a: Quote, b: Quote) => {
   const bVotes = b.votes
   const aVotes = a.votes
@@ -49,4 +62,4 @@ export const selectLowVoted = (state: RootState) => [...state.quotes.list].sort(
   return -1
 }).slice(0, 3)
 
-export default quotesSlice.reducer;
+export default quotesSlice.reducer
