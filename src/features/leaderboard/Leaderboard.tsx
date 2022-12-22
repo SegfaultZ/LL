@@ -8,8 +8,7 @@ const Leaderboard = () => {
     const [isExpanded, setIsExpanded] = useState(false)
     const topVoted = useAppSelector(selectTopVoted)
     const lowVoted = useAppSelector(selectLowVoted)
-    console.log('top', topVoted)
-    console.log('low', lowVoted)
+
     const toggleLeaderboard = () => {
         setIsExpanded(!isExpanded)
     }

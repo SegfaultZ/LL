@@ -17,7 +17,6 @@ const FloatingButtonBar = () => {
     const refetchQuotes = async () => {
         const response = await fetch('https://ron-swanson-quotes.herokuapp.com/v2/quotes/50')
         const quotes = await response.json()
-        console.log('quotes', quotes)
         const quotesToStore = quotes.map((q: string) => ({ id: uuidV4(), quote: q, votes: 0 }))
         dispatch(setQuotes(quotesToStore))
     
