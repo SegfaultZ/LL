@@ -27,6 +27,8 @@ export const quotesSlice = createSlice({
 
         return item
       })
+
+      localStorage.setItem('quotes', JSON.stringify(state.list))
     },
     downvote: (state, action: PayloadAction<Quote>) => {
       state.list = [...state.list].map((item) => {
@@ -36,9 +38,12 @@ export const quotesSlice = createSlice({
 
         return item
       })
+
+      localStorage.setItem('quotes', JSON.stringify(state.list))
     },
     setQuotes: (state, action: PayloadAction<Quote[]>) => {
       state.list = action.payload
+      localStorage.setItem('quotes', JSON.stringify(state.list))
     },
   },
 })

@@ -10,6 +10,8 @@ const QuoteList = () => {
     const quotes = useAppSelector(selectQuotes)
     
     useEffect(() => {
+        const fromStorage = localStorage.getItem('quotes') ?? '[]'
+
         const fetchQuotes = async () => {
             const response = await fetch('https://ron-swanson-quotes.herokuapp.com/v2/quotes/50')
             const quotes = await response.json()
@@ -18,7 +20,11 @@ const QuoteList = () => {
             dispatch(setQuotes(quotesToStore))
         }
 
-        fetchQuotes()
+        if (fromStorage.length) {
+            dispatch(setQuotes(JSON.parse(fromStorage)))
+        } else {
+            fetchQuotes()
+        }
     }, [dispatch])
     
     return (
