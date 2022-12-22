@@ -21,6 +21,12 @@ const Button: FC<Props> = ({
     showIcon = false,
     onClick,
 }) => {
+    const handleClick = () => {
+        if (!loading && !disabled) {
+            onClick()
+        }
+    }
+
     return (
         <button
             className={
@@ -28,12 +34,13 @@ const Button: FC<Props> = ({
                     { 'material-icons': showIcon },
                     styles.button,
                     styles[variant],
-                    styles[size]
+                    styles[size],
+                    { [styles.disabled]: disabled || loading },
                 )
             }
-            onClick={onClick}
+            onClick={handleClick}
         >
-            {label}
+            {loading ? 'Loading...' : label}
         </button>
     )
 }

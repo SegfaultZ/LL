@@ -12,13 +12,24 @@ const FloatingButtonBar = () => {
     const resetVoteCounts = async () => {
         setLoading(true)
         await dispatch(resetCount())
+
+        // Timeouts are being used to give the appearance that it's still loading so you can see the loading button
+        setTimeout(() => {
+            setLoading(false)
+        }, 1000)
     }
 
     const refetchQuotes = async () => {
+        setLoading(true)
         const response = await fetch('https://ron-swanson-quotes.herokuapp.com/v2/quotes/50')
         const quotes = await response.json()
         const quotesToStore = quotes.map((q: string) => ({ id: uuidV4(), quote: q, votes: 0 }))
         dispatch(setQuotes(quotesToStore))
+
+        // Timeouts are being used to give the appearance that it's still loading so you can see the loading button
+        setTimeout(() => {
+            setLoading(false)
+        }, 1000)
     
     }
 
