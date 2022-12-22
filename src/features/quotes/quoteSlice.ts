@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-type Quote = {
+export type Quote = {
   id: string
   quote: string
   votes: number

@@ -1,19 +1,13 @@
 import { useEffect } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { downvote, selectQuotes, setQuotes, upvote } from './quoteSlice';
+import Quote from './Quote';
+import styles from './QuoteList.module.scss';
+import { selectQuotes, setQuotes } from './quoteSlice';
 
 const QuoteList = () => {
     const dispatch = useAppDispatch()
     const quotes = useAppSelector(selectQuotes)
-
-    const voteUp = (item: any) => {
-        dispatch(upvote(item))
-    }
-
-    const voteDown = (item: any) => {
-        dispatch(downvote(item))
-    }
     
     useEffect(() => {
         const fetchQuotes = async () => {
@@ -28,15 +22,9 @@ const QuoteList = () => {
     }, [dispatch])
     
     return (
-        <>
-            {quotes.map(q => (
-                <div>
-                    <button onClick={() => voteUp(q)}>Up</button>
-                    <button onClick={() => voteDown(q)}>Down</button>
-                    <div>{q.votes} - {q.quote}</div>
-                </div>
-            ))}
-        </>
+        <div className={styles.list}>
+            {quotes.map(q => <Quote item={q} />)}
+        </div>
     )
 }
 
