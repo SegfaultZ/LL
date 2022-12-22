@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import { FC } from 'react';
 import { useAppDispatch } from '../../app/hooks';
+import Button from '../../ui/Button';
 import styles from './Quote.module.scss';
 import { downvote, Quote as QuoteProps, upvote } from './quoteSlice';
 
@@ -22,8 +23,8 @@ const Quote: FC<Props> = ({ item }) => {
     return (
         <div className={styles.quote}>
             <div className={styles.voteButtons}>
-                <button className={cx('material-icons', styles.voteButton)} onClick={() => voteUp(item)}>arrow_drop_up</button>
-                <button className={cx('material-icons', styles.voteButton)} onClick={() => voteDown(item)}>arrow_drop_down</button>
+                <Button label={'arrow_drop_up'}  onClick={() => voteUp(item)} showIcon />
+                <Button label={'arrow_drop_down'}  onClick={() => voteDown(item)} showIcon />
             </div>
             <div>{item.votes} - {item.quote}</div>
         </div>
