@@ -9,9 +9,14 @@ const Leaderboard = () => {
     console.log('low', lowVoted)
     return (
         <div className={styles.container}>
-            <div>Leaderboard:</div>
-            <div>Top: {topVoted.map(item => <div>{item.quote}</div>)}</div>
-            <div>Low: {lowVoted.map(item => <div>{item.quote}</div>)}</div>
+            <div>
+                <div>Top Voted:</div>
+                <div className={styles.list}>{topVoted.map((item, idx) => <div>{idx + 1}. {item.quote}</div>)}</div>
+            </div>
+            <div>
+                <div>Low Voted:</div>
+                <div className={styles.list}>{lowVoted.map((item, idx) => <div>{idx + 1}. {item.quote}</div>)}</div>
+            </div>
         </div>
     )
 }

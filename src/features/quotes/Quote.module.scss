@@ -1,7 +1,18 @@
 .quote {
     display: flex;
     border: 1px solid ccc;
-    height: 40px;
+    height: 60px;
     align-items: center;
     gap: 8px;
+
+    .voteButtons {
+        display: flex;
+        flex-direction: column;
+        // gap: 4px;
+
+        .voteButton {
+            // height: 20px;
+            // width: 20px;
+        }
+    }
 }
