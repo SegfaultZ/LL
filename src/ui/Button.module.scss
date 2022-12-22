@@ -8,6 +8,14 @@
         cursor: not-allowed;
     }
 
+    &.md {
+        padding: 5px;
+    }
+
+    &.lg {
+        padding: 8px;
+    }
+
     &.primary {
         background-color: rgb(0, 173, 0);
 

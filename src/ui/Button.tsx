@@ -23,7 +23,14 @@ const Button: FC<Props> = ({
 }) => {
     return (
         <button
-            className={cx({ 'material-icons': showIcon }, styles.button, styles[variant])}
+            className={
+                cx(
+                    { 'material-icons': showIcon },
+                    styles.button,
+                    styles[variant],
+                    styles[size]
+                )
+            }
             onClick={onClick}
         >
             {label}

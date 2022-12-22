@@ -1,4 +1,3 @@
-import cx from 'classnames';
 import { FC } from 'react';
 import { useAppDispatch } from '../../app/hooks';
 import Button from '../../ui/Button';
@@ -32,8 +31,19 @@ const Quote: FC<Props> = ({ item }) => {
     return (
         <div className={styles.quote}>
             <div className={styles.voteButtons}>
-                <Button label={'arrow_drop_up'}  onClick={() => voteUp(item)} showIcon />
-                <Button label={'arrow_drop_down'}  onClick={() => voteDown(item)} variant='danger' showIcon />
+                <Button
+                    label={'arrow_drop_up'}
+                    onClick={() => voteUp(item)}
+                    size='sm'
+                    showIcon
+                />
+                <Button
+                    label={'arrow_drop_down'}
+                    onClick={() => voteDown(item)}
+                    variant='danger'
+                    size='sm'
+                    showIcon
+                />
             </div>
             <div className={styles.count}>{renderVoteCount(item.votes)}</div>
             <div className={styles.quote}>{item.quote}</div>

@@ -45,10 +45,13 @@ export const quotesSlice = createSlice({
       state.list = action.payload
       localStorage.setItem('quotes', JSON.stringify(state.list))
     },
+    resetCount: (state) => {
+      state.list = [...state.list].map((item) => ({ ...item, votes: 0 }))
+    }
   },
 })
 
-export const { upvote, downvote, setQuotes } = quotesSlice.actions
+export const { upvote, downvote, setQuotes, resetCount } = quotesSlice.actions
 
 export const selectQuotes = (state: RootState) => state.quotes.list
 export const selectTopVoted = (state: RootState) => [...state.quotes.list].sort((a: Quote, b: Quote) => {
