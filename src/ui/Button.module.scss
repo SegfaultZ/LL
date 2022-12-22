@@ -40,4 +40,13 @@
             background-color: rgb(86, 2, 129);
         }
     }
+
+    &.link {
+        background-color: unset;
+
+        &:hover {
+            background-color: unset;
+            text-decoration: underline;
+        }
+    }
 }

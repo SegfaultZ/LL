@@ -33,10 +33,17 @@ const FloatingButtonBar = () => {
     
     }
 
+    const goToAPI = () => {
+        window.location.href = 'https://github.com/jamesseanwright/ron-swanson-quotes';
+    }
+
     return (
         <div className={styles.bar}>
-            <Button label='Reset Counts' variant='secondary' size='lg' onClick={resetVoteCounts} loading={loading} />
-            <Button label='Refetch Quotes' variant='secondary' size='lg' onClick={refetchQuotes} loading={loading} />
+            <div className={styles.actions}>
+                <Button label='Reset Counts' color='secondary' size='lg' onClick={resetVoteCounts} loading={loading} />
+                <Button label='Refetch Quotes' color='secondary' size='lg' onClick={refetchQuotes} loading={loading} />
+            </div>
+            <Button label='Ron Swanson Quote API' color='secondary' onClick={goToAPI} variant='link' />
         </div>
     )
 }

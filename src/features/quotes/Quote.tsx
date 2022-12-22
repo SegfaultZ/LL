@@ -35,14 +35,14 @@ const Quote: FC<Props> = ({ item }) => {
                     label={'arrow_drop_up'}
                     onClick={() => voteUp(item)}
                     size='sm'
-                    showIcon
+                    variant='icon'
                 />
                 <Button
                     label={'arrow_drop_down'}
                     onClick={() => voteDown(item)}
-                    variant='danger'
+                    color='danger'
                     size='sm'
-                    showIcon
+                    variant='icon'
                 />
             </div>
             <div className={styles.count}>{renderVoteCount(item.votes)}</div>

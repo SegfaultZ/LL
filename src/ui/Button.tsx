@@ -5,7 +5,8 @@ import styles from './Button.module.scss';
 interface Props {
     label: ReactNode
     size?: 'sm' | 'md' | 'lg'
-    variant?: 'danger' | 'primary' | 'secondary'
+    color?: 'danger' | 'primary' | 'secondary'
+    variant?: 'normal' | 'link' | 'icon'
     disabled?: boolean
     loading?: boolean
     showIcon?: boolean
@@ -15,10 +16,10 @@ interface Props {
 const Button: FC<Props> = ({
     label,
     size = 'md',
-    variant = 'primary',
+    color = 'primary',
+    variant = 'normal',
     disabled = false,
     loading = false,
-    showIcon = false,
     onClick,
 }) => {
     const handleClick = () => {
@@ -31,9 +32,10 @@ const Button: FC<Props> = ({
         <button
             className={
                 cx(
-                    { 'material-icons': showIcon },
+                    { 'material-icons': variant === 'icon' },
+                    { [styles.link]: variant === 'link'},
                     styles.button,
-                    styles[variant],
+                    styles[color],
                     styles[size],
                     { [styles.disabled]: disabled || loading },
                 )
