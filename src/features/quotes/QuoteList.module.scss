@@ -7,4 +7,10 @@
     overflow: hidden;
     overflow-y: auto;
     padding-bottom: 75px;
+
+    .searchInput {
+        width: 200px;
+        align-self: center;
+        margin-top: 10px;
+    }
 }

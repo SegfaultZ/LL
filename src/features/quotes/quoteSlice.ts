@@ -9,10 +9,12 @@ export type Quote = {
 
 export interface QuoteState {
   list: Quote[]
+  searchTerm: string
 }
 
 const initialState: QuoteState = {
-  list: []
+  list: [],
+  searchTerm: ''
 }
 
 export const quotesSlice = createSlice({
@@ -47,13 +49,16 @@ export const quotesSlice = createSlice({
     },
     resetCount: (state) => {
       state.list = [...state.list].map((item) => ({ ...item, votes: 0 }))
+    },
+    filterQuotes: (state, action: PayloadAction<string>) => {
+      state.searchTerm = action.payload
     }
   },
 })
 
-export const { upvote, downvote, setQuotes, resetCount } = quotesSlice.actions
+export const { upvote, downvote, setQuotes, resetCount, filterQuotes } = quotesSlice.actions
 
-export const selectQuotes = (state: RootState) => state.quotes.list
+export const selectQuotes = (state: RootState) => [...state.quotes.list].filter((item) => (item.quote.includes(state.quotes.searchTerm)))
 export const selectTopVoted = (state: RootState) => [...state.quotes.list].sort((a: Quote, b: Quote) => {
   const bVotes = b.votes
   const aVotes = a.votes
