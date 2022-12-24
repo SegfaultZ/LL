@@ -49,6 +49,7 @@ export const quotesSlice = createSlice({
     },
     resetCount: (state) => {
       state.list = [...state.list].map((item) => ({ ...item, votes: 0 }))
+      localStorage.setItem('quotes', JSON.stringify(state.list))
     },
     filterQuotes: (state, action: PayloadAction<string>) => {
       state.searchTerm = action.payload
@@ -58,8 +59,8 @@ export const quotesSlice = createSlice({
 
 export const { upvote, downvote, setQuotes, resetCount, filterQuotes } = quotesSlice.actions
 
-export const selectQuotes = (state: RootState) => [...state.quotes.list].filter((item) => (item.quote.includes(state.quotes.searchTerm)))
-export const selectTopVoted = (state: RootState) => [...state.quotes.list].sort((a: Quote, b: Quote) => {
+export const selectQuotes = (state: RootState) => [...state.quotes.list].filter((item) => (item.quote.toLowerCase().includes(state.quotes.searchTerm.toLowerCase())))
+export const selectTopVoted = (state: RootState) => [...state.quotes.list].filter(item => item.votes > 0).sort((a: Quote, b: Quote) => {
   const bVotes = b.votes
   const aVotes = a.votes
   if (bVotes > aVotes) return 1
@@ -67,7 +68,7 @@ export const selectTopVoted = (state: RootState) => [...state.quotes.list].sort(
   return 1
 }).slice(0, 3)
 
-export const selectLowVoted = (state: RootState) => [...state.quotes.list].sort((a: Quote, b: Quote) => {
+export const selectLowVoted = (state: RootState) => [...state.quotes.list].filter(item => item.votes < 0).sort((a: Quote, b: Quote) => {
   const bVotes = b.votes
   const aVotes = a.votes
   if (bVotes > aVotes) return -1
