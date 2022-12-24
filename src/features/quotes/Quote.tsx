@@ -29,7 +29,7 @@ const Quote: FC<Props> = ({ item }) => {
     }
 
     return (
-        <div className={styles.quote}>
+        <div className={styles.quoteContainer}>
             <div className={styles.voteButtons}>
                 <Button
                     label={'arrow_drop_up'}

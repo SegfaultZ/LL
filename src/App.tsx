@@ -6,9 +6,7 @@ import QuoteList from './features/quotes/QuoteList';
 function App() {
   return (
     <div className={styles.app}>
-      { /* clean up responsiveness for long items at small view ports */ }
       <Leaderboard />
-      { /* Add search bar with debounce to filter quotes */ }
       <div className={styles.content}>
         <QuoteList />
       </div>

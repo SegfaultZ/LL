@@ -1,17 +1,27 @@
-.quote {
+$cHeight: 80px;
+$countDimension: 50px;
+
+.quoteContainer {
     display: flex;
-    border: 1px solid ccc;
-    height: 60px;
+    height: $cHeight;
+    min-height: $cHeight;
     align-items: center;
     gap: 8px;
     padding: 10px 20px 10px 20px;
     margin: 10px 30px;
     background-color: rgb(46, 46, 46);
     justify-content: flex-start;
+    border-radius: 4px;
+
+    @media only screen and (max-width: 600px) {
+        margin: 0;
+        height: 75px;
+        min-height: 100px;
+    }
 
     .count {
-        height: 50px;
-        width: 50px;
+        height: $countDimension;
+        width: $countDimension;
         background-color: rgb(27, 27, 27);
         display: flex;
         align-items: center;
@@ -22,6 +32,11 @@
     .quote {
         flex: 1;
         overflow-y: auto;
+        height: 100%;
+        align-items: center;
+        width: 100%;
+        display: flex;
+        padding-left: 8px;
     }
 
     .voteButtons {

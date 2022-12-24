@@ -9,8 +9,22 @@
     padding-bottom: 75px;
 
     .searchInput {
-        width: 200px;
+        display: flex;
+        gap: 8px;
         align-self: center;
+        align-items: center;
+        justify-content: center;
         margin-top: 10px;
+
+        & > input {
+            width: 200px;
+            height: 25px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            flex-direction: column;
+        }
     }
 }

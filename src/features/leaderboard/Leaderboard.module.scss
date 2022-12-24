@@ -2,6 +2,9 @@
     position: relative;
     height: 250px;
     transition: all 500ms ease-in-out;
+    // overflow: hidden;
+    display: flex;
+    justify-content: center;
 
     @media only screen and (max-width: 600px) {
         height: 500px;
@@ -10,6 +13,7 @@
     .expander {
         position: absolute;
         width: 100%;
+        justify-self: center;
         height: 30px;
         background-color: rgba(37, 37, 37, 1);
         color: #ccc;
@@ -50,6 +54,7 @@
         @media only screen and (max-width: 600px) {
             flex-direction: column;
             gap: 10px;
+            // max-height: 500px;
 
             &.collapsed {
                 top: -500px;
