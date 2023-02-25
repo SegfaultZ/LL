@@ -27,3 +27,4 @@ Requirements:
   - You can reset the counters to bring everything back to a 0 state
   - You can filter the quotes
   - Fairly responsive design, not a lot of time spent verifying responsiveness
+  - Reset & Refetch actions are artificially prolonged to demonstrate the button loading states.
