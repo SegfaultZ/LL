@@ -13,3 +13,17 @@ Requirements:
   - Has at least 3 different types of buttons with different styling for each (cancel button, form submission button, link button, etc...)
   - Has a `isLoading` prop which renders the text "Loading" inside of the button or a loading spinner
   - Has a `isDisabled`prop which disables the button and adjusts the styling to indicate it is no longer clickable
+
+# Using the app
+- Running the app
+  - clone the repo
+  - `npm i`
+  - `npm run start`
+- Features:
+  - Upvote/downvote quotes (All made by Ron Swanson)
+  - A leaderboard exists at the top of the page that shows the most upvoted and most downvoted quotes
+  - Quotes persist via localstorage
+  - You can refetch quotes to get a new list
+  - You can reset the counters to bring everything back to a 0 state
+  - You can filter the quotes
+  - Fairly responsive design, not a lot of time spent verifying responsiveness
