@@ -1,46 +1,15 @@
-# Getting Started with Create React App
+# Description
+This project is a guinea pig for a friends company interview take home project.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Requirements:
+- Fetches data from an external source https://github.com/public-apis/public-apis
+  - Feel free to use any state management you want. If you want to flex your muscles with a specific library (redux/zustand), then use it
+- Renders the data to a list or table view (styling entirely up to you!) with buttons allowing users upvote or downvote each item (votes do not need to persist across browser refreshes)
+- Above the item list/table, display a leaderboard of the most upvoted and downvoted items
+- Add a button to reset all votes somewhere
+- Is mobile/web responsive
+- Add a DEBOUNCED text input above your table/list which filters the items in your table or list.
+- Create a generic button components which, via its props, has the following configurations. Ensure to use this button throughout the application.
+  - Has at least 3 different types of buttons with different styling for each (cancel button, form submission button, link button, etc...)
+  - Has a `isLoading` prop which renders the text "Loading" inside of the button or a loading spinner
+  - Has a `isDisabled`prop which disables the button and adjusts the styling to indicate it is no longer clickable
